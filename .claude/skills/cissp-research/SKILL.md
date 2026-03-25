@@ -31,7 +31,7 @@ You research (ISC)² CISSP materials to support exam study.
 - How is this concept typically tested? (direct knowledge, scenario-based, "best answer" format)
 - Common wrong answer patterns
 - Whether this tests technical knowledge or managerial judgment
-- Common trap answers or misconceptions (add to `/reference/exam-traps.md`)
+- Common trap answers or misconceptions (stage in `/reference/pending-review.md`)
 
 ### 5. Real-World Context
 - Notable breaches or incidents that illustrate this concept
@@ -45,9 +45,19 @@ You research (ISC)² CISSP materials to support exam study.
 
 ### 7. File Updates
 - Save a structured summary to `/notes/` as a kebab-case file (e.g., `/notes/kerberos.md`)
-- Update `/reference/cissp-glossary.md` with any new definitions found
-- Update `/reference/frameworks-map.md` with any new frameworks cited
-- Update `/reference/exam-traps.md` with any new traps identified
+- Do NOT write directly to reference files. Append proposed additions to `/reference/pending-review.md` using this format for each entry:
+
+```
+### [target-file] — [short description]
+Source: [URL or "web search: query terms"]
+Date: YYYY-MM-DD
+
+[Proposed content to add to the target file]
+```
+
+- Group by target file (cissp-glossary.md, frameworks-map.md, exam-traps.md)
+- Include source URLs for traceability
+- The student reviews and promotes pending entries to reference files via `/promote`
 
 ## Constraints
 

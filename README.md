@@ -56,17 +56,22 @@ The entire system runs inside Claude Code. There is no web app, no database, no 
 ## How It Works
 
 ```
-/reference/*.md  <--  ground truth (skills read these before every response)
+/reference/*.md  <--  ground truth (skills READ these before every response)
        ^
-       |  /research updates reference files with new findings
+       |  /promote (human review gate)
        |
-  Skills (tutor, exam, validator, comprehension)
+/reference/pending-review.md  <--  staged additions (skills WRITE here)
+       ^
+       |
+  Skills (tutor, research, validator)
        |
        v
 /progress/*.md   <--  quiz scores and weekly reviews (exam skill appends here)
 ```
 
 **Skills** are Claude Code AI agents, each with a specific role and assigned model. **Commands** are slash-command wrappers that activate skills with user arguments. **Reference files** are the single source of truth — when Claude's training data conflicts with a reference file, the file wins.
+
+Skills never write directly to reference files. New definitions, exam traps, and framework references discovered during sessions are staged in `reference/pending-review.md` with source attribution. You review and promote staged entries to the authoritative files via `/promote`.
 
 The exam skill reads your past scores from `/progress/daily-scores.md` and weights future question sets toward your weak domains. The `/review` command analyzes score trends and adjusts your study plan.
 
@@ -82,6 +87,7 @@ cissp-study/
 |   |   |-- research.md              #   /research [topic]
 |   |   |-- validate.md              #   /validate [claim]
 |   |   |-- rapid-fire.md            #   /rapid-fire [topic]
+|   |   |-- promote.md              #   /promote (review staged additions)
 |   |   +-- review.md                #   /review
 |   |
 |   +-- skills/                      # Claude AI skill implementations
@@ -96,7 +102,8 @@ cissp-study/
 |   |-- cissp-domains.md             #   8 domains, subtopics, key concepts, frameworks
 |   |-- exam-traps.md                #   Known exam traps and misconceptions
 |   |-- analogy-map.md.example       #   Template for background-specific analogies
-|   +-- frameworks-map.md            #   NIST, ISO, OWASP, GDPR, HIPAA, SOX, PCI DSS, FIPS
+|   |-- frameworks-map.md            #   NIST, ISO, OWASP, GDPR, HIPAA, SOX, PCI DSS, FIPS
+|   +-- pending-review.md            #   Staged additions awaiting /promote review
 |
 |-- progress/                        # Performance tracking (auto-populated)
 |   |-- daily-scores.md.example      #   Template for quiz/exam score logging
@@ -116,10 +123,11 @@ cissp-study/
 | Command | Purpose | Typical Duration |
 |---|---|---|
 | `/study [topic]` | Start a tutor session with 4-part format: definition, analogy, scenario, comprehension check | 45-60 min |
-| `/research [topic]` | Deep-dive research using web search; updates reference files | 15 min |
+| `/research [topic]` | Deep-dive research using web search; stages findings for review | 15 min |
 | `/quiz [topic\|20\|full]` | Generate practice exam questions, grade, and log scores | 20 min |
 | `/rapid-fire [topic]` | Quick definition/concept recall drilling | 10 min |
 | `/validate [claim]` | Fact-check a claim against reference files | As needed |
+| `/promote` | Review and promote staged additions to reference files | As needed |
 | `/review` | Analyze weekly scores, identify trends, adjust study plan | Sundays |
 
 The comprehension skill is triggered conversationally by saying **"Challenge me on [concept]"** rather than a slash command.
@@ -152,14 +160,14 @@ All files in `/reference/` are **authoritative**. Skills read these before respo
 
 Reference files are aligned with the [official ISC2 CISSP Certification Exam Outline](https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline) (effective April 15, 2024).
 
-Skills that discover new definitions, traps, or framework references during sessions append them to the appropriate reference file automatically.
+Skills that discover new definitions, traps, or framework references during sessions stage them in `reference/pending-review.md` with source attribution. Use `/promote` to review and move approved content into the authoritative files.
 
 ## Daily Workflow
 
 ```
 STEP 1 -- RESEARCH (15 min)
   /research [domain or standard]
-  Updates reference files with current information
+  Stages findings in pending-review.md for your review
 
 STEP 2 -- LEARN (45-60 min)
   /study [topic]
@@ -177,6 +185,10 @@ STEP 4 -- TEST (20 min)
 STEP 5 -- VALIDATE (as needed)
   /validate [claim]
   Fact-check anything that seems wrong
+
+STEP 6 -- PROMOTE (as needed)
+  /promote
+  Review staged additions and promote, edit, or discard
 
 SUNDAY:
   /review

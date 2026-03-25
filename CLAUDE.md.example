@@ -27,15 +27,22 @@ A CISSP exam study environment built entirely on Claude Code skills and commands
 ### Data Flow
 
 ```
-/reference/*.md  ←  ground truth (skills read these before every response)
+/reference/*.md  ←  ground truth (skills READ these before every response)
        ↑
-       |  /research updates reference files with new findings
+       |  /promote (human review gate)
        |
-  Skills (tutor, exam, validator, comprehension)
+/reference/pending-review.md  ←  staged additions (skills WRITE here)
+       ↑
+       |
+  Skills (tutor, research, validator)
        |
        ↓
 /progress/*.md   ←  quiz scores and weekly reviews (exam skill appends here)
 ```
+
+Skills never write directly to reference files. New definitions, traps, and framework
+references are staged in `pending-review.md` with source attribution. The student
+reviews and promotes entries via `/promote`.
 
 ### Commands → Skills
 
@@ -48,6 +55,7 @@ Slash commands (`.claude/commands/`) are thin wrappers that activate skills (`.c
 | `/quiz [topic\|20\|full]` | cissp-exam | Haiku 4.5 |
 | `/rapid-fire [topic]` | cissp-exam (rapid-fire mode) | Haiku 4.5 |
 | `/validate [claim]` | cissp-validator | Opus 4.6 |
+| `/promote` | (no skill — review pending additions) | — |
 | `/review` | (no skill — direct analysis) | — |
 
 The comprehension skill (`cissp-comprehension`, Sonnet 4.6) is triggered conversationally by "Challenge me on [concept]" rather than a slash command.
@@ -62,7 +70,7 @@ All files in `/reference/` are **authoritative**. When training data conflicts w
 - `analogy-map.md` — Analogy mappings for all 8 domains (customize to student background)
 - `frameworks-map.md` — NIST, ISO, OWASP, GDPR, HIPAA, SOX, PCI DSS, FIPS with domain relevance
 
-Skills that discover new definitions, traps, or framework references should append them to the appropriate reference file. The `/research` command also saves structured summaries to `/notes/`.
+Skills that discover new definitions, traps, or framework references stage them in `pending-review.md` with source attribution. They do NOT write directly to authoritative reference files. The student reviews and promotes staged content via `/promote`. The `/research` command also saves structured summaries to `/notes/`.
 
 ### Progress Tracking
 

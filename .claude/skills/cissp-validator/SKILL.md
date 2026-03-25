@@ -79,4 +79,12 @@ CORRECT | PARTIALLY CORRECT | INCORRECT
 - If a question involves math (ALE, SLE, ARO), show the correct calculation.
 - CISSP tests current (ISC)² CBK — not deprecated concepts.
 - When two interpretations exist, state which one the CISSP exam is more likely to test.
-- If you find a new exam trap, add it to `/reference/exam-traps.md`.
+- Do NOT write directly to reference files. If you find a new exam trap, stage it in `/reference/pending-review.md`:
+
+```
+### exam-traps.md — [short description]
+Source: validator session
+Date: YYYY-MM-DD
+
+[Proposed exam trap entry]
+```
