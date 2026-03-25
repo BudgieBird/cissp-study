@@ -69,7 +69,17 @@ The exam is adaptive. If you're getting harder questions, that's GOOD — it mea
 you're performing above the threshold. It stops at 100 if it's confident in
 pass/fail. Going to 150 questions means the algorithm was unsure, NOT that you're failing.
 
-TRAP 14 — Unscored Pretest Items
+TRAP 14 — BIA vs. Risk Assessment
+BIA (Business Impact Analysis) identifies CRITICAL BUSINESS FUNCTIONS and the IMPACT
+of disruption (financial, operational, reputational). It answers: "What happens if this
+process stops?" and drives recovery priorities (RPO/RTO).
+Risk Assessment identifies THREATS, VULNERABILITIES, and LIKELIHOOD of occurrence.
+It answers: "What could go wrong and how likely is it?"
+BIA feeds into BCP. Risk Assessment feeds into risk treatment decisions.
+Students confuse them because both "analyze" things. BIA = impact of loss.
+Risk Assessment = likelihood and consequence of threats.
+
+TRAP 15 — Unscored Pretest Items
 The exam includes unscored research questions mixed in with scored ones. You CANNOT
 tell which are which. Some questions will feel unusually hard or ambiguous — these may
 be pretest items being evaluated for future exams. Do not let them shake your

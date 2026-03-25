@@ -26,7 +26,7 @@ Passing: 700/1000 (scaled score, but functionally pass/fail)
 - Quantitative and qualitative risk analysis
 
 **Key Concepts:**
-- Risk = Threat × Vulnerability × Impact
+- Risk = Threat × Vulnerability × Impact (conceptual relationship — not a calculable formula; use ALE/SLE/ARO for quantitative analysis)
 - ALE = SLE × ARO, SLE = AV × EF
 - Risk treatment: accept, mitigate, transfer, avoid
 - Due diligence (research) vs. due care (action)
@@ -68,7 +68,7 @@ NIST SP 800-88 (sanitization), NIST SP 800-53, ISO/IEC 27001, GDPR (data rights)
 
 **Subtopics:**
 - Engineering processes using secure design principles
-- Security models (Bell-LaPadula, Biba, Star Model, Clark-Wilson)
+- Security models (Bell-LaPadula, Biba, Star Model, Clark-Wilson, Brewer-Nash/Chinese Wall)
 - Control selection based on information security requirements
 - Information systems security capabilities (memory protection, virtualization, TPM, encryption/decryption)
 - Vulnerability assessment and mitigation (architectural, design, implementation)
@@ -84,6 +84,8 @@ NIST SP 800-88 (sanitization), NIST SP 800-53, ISO/IEC 27001, GDPR (data rights)
 - Bell-LaPadula = confidentiality (no read up, no write down)
 - Biba = integrity (no write up, no read down)
 - Clark-Wilson = integrity through well-formed transactions and separation of duties
+- Star Model (*-property) = the write restriction component of formal security models. In Bell-LaPadula, the *-property means "no write down" (prevents leaking secrets to lower levels). In Biba, the *-integrity axiom means "no write up" (prevents contaminating higher-integrity data). ISC2 lists Star Model separately in the exam outline.
+- Brewer-Nash (Chinese Wall) = dynamic access control that prevents conflicts of interest. Once a subject accesses data in one conflict class, access to competing datasets is denied. Common in financial, legal, and consulting environments.
 - Symmetric = shared key, fast, bulk data (AES)
 - Asymmetric = key pair, slow, key exchange/signatures (RSA, ECC)
 - Hashing = integrity verification, not encryption (SHA-256)

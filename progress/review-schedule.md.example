@@ -1,0 +1,21 @@
+# Spaced Repetition Schedule
+
+Concepts move through intervals: 1 day → 3 days → 7 days → 14 days → 30 days.
+A missed concept resets to the 1-day interval.
+
+## Format
+
+```
+| Concept | Domain | Last Correct | Interval | Next Review |
+|---|---|---|---|---|
+| Bell-LaPadula vs Biba | D3 | 2026-03-20 | 3 days | 2026-03-23 |
+| ALE = SLE × ARO | D1 | 2026-03-18 | 7 days | 2026-03-25 |
+| RPO vs RTO | D7 | 2026-03-25 | 1 day | 2026-03-26 |
+```
+
+## How This Works
+
+- After each `/quiz` or `/rapid-fire` session, missed concepts are added at the 1-day interval
+- Correctly answered concepts advance to the next interval
+- The `/review` command reads this file and outputs a "due for review" list
+- The exam skill reads this file to prioritize due concepts in question generation

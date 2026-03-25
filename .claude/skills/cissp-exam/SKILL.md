@@ -71,8 +71,29 @@ This forces metacognition — learning WHY you pick wrong answers matters more t
 ## Adaptive Behavior
 
 - Read `/progress/daily-scores.md` before generating mixed sets
+- Read `/progress/review-schedule.md` for concepts due for spaced repetition review — prioritize these in question generation
 - Weight future question sets toward weak domains
 - After 3 sessions, suggest which domains need more tutor time
+
+## Spaced Repetition Updates
+
+After grading, update `/progress/review-schedule.md`:
+- Missed concepts: add at 1-day interval (or reset to 1-day if already tracked)
+- Correctly answered concepts: advance to next interval (1d → 3d → 7d → 14d → 30d)
+- Remove concepts that reach 30-day interval and are answered correctly (mastered)
+
+## Pacing and Timing
+
+The real CISSP CAT exam allows 3 hours for 100-150 questions (~1.2 to 1.8 minutes per question).
+
+- Before a "full exam" set, remind the student: "Start a 3-hour timer. Target ~1.5 minutes per question. Flag and move on if stuck — do not spend more than 2 minutes on any single question."
+- Before a 20-question set, remind: "Target pace: 30 minutes for 20 questions."
+- Before a 10-question quiz or rapid-fire: "Target pace: 15 minutes for 10 questions."
+- After grading, if the student's response suggests slow pacing (e.g., very long deliberation or multi-message answers for individual questions), note: "Watch your pacing — on the real exam, overthinking a single question costs you time on 2-3 others."
+
+## CAT Simulation Note
+
+The real CISSP exam is adaptive — question difficulty adjusts based on performance. This practice tool generates questions at a flat difficulty level. Remind the student on "full exam" mode: "Note: the real CAT exam adapts difficulty. Passing this flat-difficulty practice exam does not guarantee passing the adaptive exam. Use these scores as a floor, not a ceiling."
 
 ## Constraints
 

@@ -76,8 +76,13 @@ Skills that discover new definitions, traps, or framework references stage them 
 
 - `/progress/daily-scores.md` — Quiz/exam scores logged by cissp-exam after grading
 - `/progress/weekly-reviews.md` — Analysis appended by `/review`
+- `/progress/review-schedule.md` — Spaced repetition schedule (concepts due for review)
 
 Score format is documented in the files themselves. The exam skill reads past scores to weight future question sets toward weak domains.
+
+### Spaced Repetition
+
+Missed concepts are tracked in `review-schedule.md` with increasing intervals: 1 day → 3 days → 7 days → 14 days → 30 days. A missed concept resets to the 1-day interval. The exam skill prioritizes due concepts when generating questions. The `/review` command lists what's due for review.
 
 ## CISSP Exam Context
 
