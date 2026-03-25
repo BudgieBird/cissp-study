@@ -1,0 +1,114 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What This Is
+
+A CISSP exam study environment built entirely on Claude Code skills and commands. There is no application code — the project is a structured set of reference files, progress logs, and Claude Code skills that together form an adaptive tutoring system.
+
+## Student Profile
+
+- (X years) IT experience
+- Strong in: (list your primary skills — e.g., networking, development, sysadmin, cloud, security, etc.)
+- Expert in: (list tools/platforms you know well — e.g., AWS, Kubernetes, Linux, Windows Server, etc.)
+- Background: (any non-IT background that informs how you think — e.g., finance, healthcare, law enforcement, engineering, etc.)
+- NOT a programmer / IS a programmer (pick one — affects how Domain 8 is taught)
+- Has NOT yet taken the CISSP exam (no score breakdown available)
+- Learns best through analogies mapped to existing expertise
+- Does NOT want generic textbook explanations
+- Analogy preferences: (list analogy types you DO NOT want — e.g., "no gaming analogies", "no sports analogies")
+
+> **Customize this section!** The tutor, comprehension, and exam skills all read this
+> profile to tailor explanations. The more specific you are, the better the analogies.
+> Update the analogy-map.md file to match your background once you've filled this in.
+
+## Architecture
+
+### Data Flow
+
+```
+/reference/*.md  ←  ground truth (skills read these before every response)
+       ↑
+       |  /research updates reference files with new findings
+       |
+  Skills (tutor, exam, validator, comprehension)
+       |
+       ↓
+/progress/*.md   ←  quiz scores and weekly reviews (exam skill appends here)
+```
+
+### Commands → Skills
+
+Slash commands (`.claude/commands/`) are thin wrappers that activate skills (`.claude/skills/`). Each command reads `$ARGUMENTS` from the user and delegates to the appropriate skill:
+
+| Command | Activates Skill | Model |
+|---|---|---|
+| `/study [topic]` | cissp-tutor | Opus 4.6 |
+| `/research [topic]` | cissp-research | Sonnet 4.6 (with web search) |
+| `/quiz [topic\|20\|full]` | cissp-exam | Haiku 4.5 |
+| `/rapid-fire [topic]` | cissp-exam (rapid-fire mode) | Haiku 4.5 |
+| `/validate [claim]` | cissp-validator | Opus 4.6 |
+| `/review` | (no skill — direct analysis) | — |
+
+The comprehension skill (`cissp-comprehension`, Sonnet 4.6) is triggered conversationally by "Challenge me on [concept]" rather than a slash command.
+
+### Reference Files (Ground Truth)
+
+All files in `/reference/` are **authoritative**. When training data conflicts with a reference file, the file wins. Skills must read these before responding:
+
+- `cissp-glossary.md` — (ISC)² definitions organized by domain
+- `cissp-domains.md` — 8 domains with subtopics, key concepts, and applicable frameworks
+- `exam-traps.md` — Known exam traps and common misconceptions
+- `analogy-map.md` — Analogy mappings for all 8 domains (customize to student background)
+- `frameworks-map.md` — NIST, ISO, OWASP, GDPR, HIPAA, SOX, PCI DSS, FIPS with domain relevance
+
+Skills that discover new definitions, traps, or framework references should append them to the appropriate reference file. The `/research` command also saves structured summaries to `/notes/`.
+
+### Progress Tracking
+
+- `/progress/daily-scores.md` — Quiz/exam scores logged by cissp-exam after grading
+- `/progress/weekly-reviews.md` — Analysis appended by `/review`
+
+Score format is documented in the files themselves. The exam skill reads past scores to weight future question sets toward weak domains.
+
+## CISSP Exam Context
+
+- Format: CAT (100-150 questions, adaptive), 3 hours, 700/1000 to pass
+- **Tests at MANAGERIAL level** — "what should the security leader do?" not "how do you configure this?"
+- Many IT veterans fail by answering with technical solutions instead of management-level thinking
+- Life safety is always the top priority in any scenario
+
+### 8 Domains (weighted)
+
+1. Security and Risk Management (16%)
+2. Asset Security (10%)
+3. Security Architecture and Engineering (13%)
+4. Communication and Network Security (13%)
+5. Identity and Access Management (13%)
+6. Security Assessment and Testing (12%)
+7. Security Operations (13%)
+8. Software Development Security (10%)
+
+## Daily Workflow
+
+```
+/research [topic]     → 15 min  → updates reference files
+/study [topic]        → 45-60 min → 4-part format until understanding demonstrated
+"Challenge me on X"   → 15-20 min → Socratic probing, pass or back to tutor
+/quiz 20              → 20 min  → graded, logged to daily-scores
+/validate [claim]     → as needed → fact-check against reference files
+/review               → Sundays → analyze scores, adjust plan
+```
+
+## Study Timeline
+
+WEEK 1: Diagnostic — `/quiz full` cold, identify 3 weakest and 3 strongest domains
+WEEKS 2-4: Focus on 3 weakest domains (likely: Software Dev Security if non-programmer, Risk Management if non-governance, Asset Security if ops-only)
+WEEKS 5-7: Fill middle-domain gaps, heavy scenario practice
+WEEKS 8-10: Full practice exams 3x/week, polish "think like a manager" mindset
+
+Adjust timeline to actual study duration. The system adapts via `/review`.
+
+## Validator Same-Family Limitation
+
+The validator runs on the same model family (Anthropic) as the tutor. When validator confidence is LOW (reference files insufficient), the student should cross-validate with a non-Anthropic model (e.g., GPT 5.4, Gemini 3.1 Pro) or official (ISC)² sources.

@@ -1,0 +1,20 @@
+# Daily Scores
+
+<!-- Commands log results here automatically. Do not change the format. -->
+
+## Entry Format
+
+```
+## YYYY-MM-DD
+
+- Topic: [topic]
+- Mode: [quiz/rapid-fire/full-exam]
+- Score: X/Y (Z%)
+- Domain breakdown: [if mixed set]
+- Missed questions: [topic of each missed Q]
+- Notes: [any patterns observed]
+```
+
+---
+
+<!-- Entries below this line -->

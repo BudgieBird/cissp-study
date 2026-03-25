@@ -1,0 +1,167 @@
+# CISSP Analogy Map
+
+This file maps CISSP concepts to analogies drawn from YOUR professional background.
+The tutor and comprehension skills read this file before every response.
+
+## How to Use This Template
+
+1. Copy this file to `reference/analogy-map.md`
+2. For each domain, pick the analogy source that fits YOUR experience
+3. Replace the example analogies with ones from your own work
+4. The more specific and personal the analogy, the better it sticks
+
+The example column below uses generic IT analogies as placeholders. Replace them
+with analogies from whatever you actually do — the system works best when concepts
+map to things you have hands-on experience with.
+
+══════════════════════════════════════════════════════
+DOMAIN 1: Security and Risk Management → (YOUR BACKGROUND)
+══════════════════════════════════════════════════════
+
+| CISSP Concept                  | Your Analogy                                          |
+|-------------------------------|-------------------------------------------------------|
+| Security governance           | Organizational leadership / chain of command           |
+| Security policy               | Standard operating procedures in your org              |
+| Risk assessment               | Evaluating threats before a major decision             |
+| Risk treatment (accept/       | Accept the risk, reduce it, transfer it (insurance),   |
+|   mitigate/transfer/avoid)    |   or avoid the activity entirely                       |
+| Quantitative risk analysis    | Putting dollar figures on potential losses              |
+| Qualitative risk analysis     | Expert judgment + experience (high/medium/low)         |
+| ALE = SLE x ARO               | Expected annual loss = damage per event x frequency    |
+| Due diligence                 | Research before committing to a decision               |
+| Due care                      | Following established procedures during execution      |
+| Compliance                    | Audits / inspections / following regulations            |
+| Ethics (ISC2 Code of Ethics)  | Professional code of conduct                           |
+| BCP (Business Continuity)     | Plan to keep operations running during a disruption    |
+| Legal/regulatory requirements | Rules you must follow — consequences for violations    |
+| Senior management support     | Leadership buy-in for security initiatives              |
+
+══════════════════════════════════════════════════════
+DOMAIN 2: Asset Security → (YOUR BACKGROUND)
+══════════════════════════════════════════════════════
+
+| CISSP Concept                  | Your Analogy                                          |
+|-------------------------------|-------------------------------------------------------|
+| Data classification           | Labeling information by sensitivity level              |
+| Data ownership (owner/        | Owner = decides policy, custodian = implements it,     |
+|   custodian/steward)          |   steward = tracks and catalogs it                     |
+| Data retention policy         | How long you keep records before destruction           |
+| Data remanence                | Deleted files are recoverable — sanitize properly      |
+| Data at rest / in transit /   | Stored on disk / moving over network / loaded in       |
+|   in use                      |   application memory                                   |
+| Scoping and tailoring         | Adjusting controls to fit your actual environment      |
+
+══════════════════════════════════════════════════════
+DOMAIN 3: Security Architecture & Engineering → (YOUR BACKGROUND)
+══════════════════════════════════════════════════════
+
+| CISSP Concept                  | Your Analogy                                          |
+|-------------------------------|-------------------------------------------------------|
+| Defense in depth              | Multiple layers of security — no single point of       |
+|                               |   failure                                              |
+| Security models (Bell-        | Bell-LaPadula = confidentiality (no read up, no write  |
+|   LaPadula, Biba, Clark-     |   down). Biba = integrity (no write up, no read down). |
+|   Wilson)                     |   Clark-Wilson = integrity via controlled transactions  |
+| Trusted Computing Base (TCB)  | The minimal trusted layer everything else depends on   |
+| Security perimeter            | Network boundary / segmentation point                  |
+| Cryptography (symmetric)      | One shared key — both sides use the same key           |
+| Cryptography (asymmetric)     | Key pair — public key shared, private key stays local  |
+| Hashing                       | Fingerprint of data — verify integrity, not decrypt    |
+| PKI / certificates            | Trust chain — CA vouches for identity via certificates |
+| Side-channel attacks          | Extracting info from implementation behavior (timing,  |
+|                               |   power usage) rather than breaking the algorithm      |
+| Zero trust architecture       | Never trust implicitly — always verify, even inside    |
+|                               |   the network                                          |
+
+══════════════════════════════════════════════════════
+DOMAIN 4: Communication & Network Security → (YOUR BACKGROUND)
+══════════════════════════════════════════════════════
+
+| CISSP Concept                  | Your Analogy                                          |
+|-------------------------------|-------------------------------------------------------|
+| OSI model                     | 7-layer networking reference model                     |
+| Firewalls (stateful/          | Stateful tracks connection state; stateless checks     |
+|   stateless)                  |   each packet independently                            |
+| Network segmentation          | Dividing the network into isolated zones               |
+| VPN                           | Encrypted tunnel over an untrusted network             |
+| TLS/SSL                       | Encryption for data in transit (HTTPS)                 |
+| DNS security                  | DNSSEC for integrity; DoH/DoT for privacy              |
+| Network attacks (MITM,        | Intercepting or replaying network traffic              |
+|   replay, etc.)               |                                                        |
+| SDN                           | Software-defined networking — programmatic control     |
+| Microsegmentation             | Granular access rules between individual workloads     |
+
+══════════════════════════════════════════════════════
+DOMAIN 5: Identity & Access Management → (YOUR BACKGROUND)
+══════════════════════════════════════════════════════
+
+| CISSP Concept                  | Your Analogy                                          |
+|-------------------------------|-------------------------------------------------------|
+| Authentication                | Proving who you are (password, key, biometric)         |
+| Authorization                 | What you are allowed to do once authenticated          |
+| Accountability                | Audit logs — who did what, when                        |
+| SSO                           | One login grants access to multiple systems            |
+| MFA                           | Two or more different factor types required             |
+| RBAC                          | Access based on role / group membership                |
+| MAC (Mandatory Access         | System enforces policy — user cannot override          |
+|   Control)                    |                                                        |
+| DAC (Discretionary Access     | Owner decides who gets access                          |
+|   Control)                    |                                                        |
+| ABAC                          | Access based on attributes (tags, context, time)       |
+| Federation                    | Trust across organizational boundaries (OAuth, SAML)   |
+| Identity lifecycle            | Provisioning, review, deprovisioning of accounts       |
+| Privilege escalation          | Gaining higher access than intended                    |
+
+══════════════════════════════════════════════════════
+DOMAIN 6: Security Assessment & Testing → (YOUR BACKGROUND)
+══════════════════════════════════════════════════════
+
+| CISSP Concept                  | Your Analogy                                          |
+|-------------------------------|-------------------------------------------------------|
+| Vulnerability scanning        | Automated scan to find known weaknesses                |
+| Penetration testing           | Authorized simulated attack to test defenses           |
+| Log review / audit            | Reviewing logs and dashboards for anomalies            |
+| SOC 2 / audit reports         | Third-party assurance that controls are working        |
+| Code review                   | Catching flaws before they reach production            |
+| Synthetic transactions        | Health checks / uptime monitoring                      |
+| KPIs and metrics              | Measuring security posture quantitatively              |
+
+══════════════════════════════════════════════════════
+DOMAIN 7: Security Operations → (YOUR BACKGROUND)
+══════════════════════════════════════════════════════
+
+| CISSP Concept                  | Your Analogy                                          |
+|-------------------------------|-------------------------------------------------------|
+| Incident response phases      | Detection → Response → Mitigation → Reporting →       |
+|                               |   Recovery → Remediation → Lessons Learned             |
+| Chain of custody              | Maintaining evidence integrity for legal admissibility |
+| Forensics                     | Image the disk first — never write to the original     |
+| Disaster recovery             | Failover to alternate site / restore from backup       |
+| RPO / RTO                     | RPO = tolerable data loss (last backup interval)       |
+|                               | RTO = tolerable downtime (recovery time target)        |
+| Change management             | Nothing goes to production without approval + testing  |
+| Patch management              | Controlled, timely application of updates              |
+| SIEM                          | Centralized log aggregation, correlation, alerting     |
+| IDS/IPS                       | Detect (IDS) or block (IPS) malicious traffic          |
+| DLP                           | Preventing sensitive data from leaving the network     |
+
+══════════════════════════════════════════════════════
+DOMAIN 8: Software Development Security → (YOUR BACKGROUND)
+══════════════════════════════════════════════════════
+
+| CISSP Concept                  | Your Analogy                                          |
+|-------------------------------|-------------------------------------------------------|
+| SDLC                          | Structured phases: plan → develop → test → deploy →   |
+|                               |   maintain                                             |
+| Secure coding practices       | Input validation, parameterized queries, output        |
+|                               |   encoding                                             |
+| OWASP Top 10                  | Most common web application security risks             |
+| SQL injection                 | Unsanitized input executed by the database             |
+| XSS                           | Malicious script injected into a web page              |
+| API security                  | Authentication, rate limiting, input validation on     |
+|                               |   API endpoints                                        |
+| DevSecOps                     | Security scanning integrated into the development      |
+|                               |   pipeline, not added after                             |
+| Software supply chain         | Verifying trust in third-party code and dependencies   |
+| SAST / DAST                   | SAST = scan code before it runs (static)               |
+|                               | DAST = scan the running application (dynamic)          |

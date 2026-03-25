@@ -1,0 +1,22 @@
+# Weekly Reviews
+
+<!-- /review appends a new entry here each time it runs. -->
+
+## Entry Format
+
+```
+### Week of YYYY-MM-DD
+
+**Strengths:** ...
+**Weak Spots:** ...
+**Patterns:** ...
+**Trend:** improving | plateauing | regressing
+**Recommended Focus:**
+- /study [topic]
+- /rapid-fire [topic]
+- ...
+```
+
+---
+
+<!-- Entries below this line -->
