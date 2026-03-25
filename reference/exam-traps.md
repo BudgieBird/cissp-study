@@ -45,8 +45,12 @@ Something you KNOW (password), something you HAVE (token/phone), something you A
 MFA requires at least TWO DIFFERENT factors. Two passwords is NOT MFA (both are "know").
 
 TRAP 10 — Incident Response Order
-(1) Detection/Identification → (2) Containment → (3) Eradication → (4) Recovery → (5) Lessons Learned
-Students want to jump to eradication. Contain FIRST. You stop the bleeding before you do surgery.
+ISC2's 7-step model: (1) Detection → (2) Response → (3) Mitigation → (4) Reporting →
+(5) Recovery → (6) Remediation → (7) Lessons Learned
+NIST 800-61 uses a different 4-phase model (Preparation → Detection/Analysis →
+Containment/Eradication/Recovery → Post-Incident Activity). Know BOTH — but for
+"best answer" on the CISSP, use ISC2's terminology unless the question cites NIST.
+Students want to jump straight to fixing things. Mitigate/contain FIRST.
 
 TRAP 11 — Legal Concepts
 Students from technical backgrounds often bomb the legal questions.
@@ -64,3 +68,10 @@ TRAP 13 — CAT Exam Behavior
 The exam is adaptive. If you're getting harder questions, that's GOOD — it means
 you're performing above the threshold. It stops at 100 if it's confident in
 pass/fail. Going to 150 questions means the algorithm was unsure, NOT that you're failing.
+
+TRAP 14 — Unscored Pretest Items
+The exam includes unscored research questions mixed in with scored ones. You CANNOT
+tell which are which. Some questions will feel unusually hard or ambiguous — these may
+be pretest items being evaluated for future exams. Do not let them shake your
+confidence or waste disproportionate time. Treat every question the same, answer your
+best, and move on.

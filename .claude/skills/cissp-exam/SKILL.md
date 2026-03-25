@@ -36,6 +36,25 @@ Use weights from `/reference/cissp-domains.md`. When score data exists in `/prog
   Correct or Incorrect | Student answer | Correct answer | 1-sentence explanation
 - Summary: total score, score by domain, areas of concern
 - If a missed question matches a known exam trap from `/reference/exam-traps.md`, flag it
+
+## Wrong Answer Analysis
+
+After grading, present a wrong-answer analysis section for every missed question:
+
+For each wrong answer, classify the error type:
+- **Trap match** — cite the specific trap number from exam-traps.md (e.g., "TRAP 1 — Think Like a Manager")
+- **Technical-not-managerial** — student picked the technically correct answer instead of the management answer
+- **Ordering/sequence error** — student knew the steps but got the order wrong
+- **Scope confusion** — student confused which domain or framework a concept belongs to
+- **Terminology swap** — student confused two similar terms (e.g., RPO vs. RTO, BCP vs. DRP)
+- **Knowledge gap** — student did not know the concept
+
+Then ask the student: "For each wrong answer, do you agree with this classification? If not, what do you think the real error was?"
+
+This forces metacognition — learning WHY you pick wrong answers matters more than memorizing right ones.
+
+## Score Logging
+
 - Log results to `/progress/daily-scores.md` in this format:
 
 ```
