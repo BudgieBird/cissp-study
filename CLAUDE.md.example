@@ -105,7 +105,7 @@ Missed concepts are tracked in `review-schedule.md` with increasing intervals: 1
 ## Daily Workflow
 
 ```
-/research [topic]     → 15 min  → updates reference files
+/research [topic]     → 15 min  → stages findings in pending-review.md
 /study [topic]        → 45-60 min → 4-part format until understanding demonstrated
 "Challenge me on X"   → 15-20 min → Socratic probing, pass or back to tutor
 /quiz 20              → 20 min  → graded, logged to daily-scores

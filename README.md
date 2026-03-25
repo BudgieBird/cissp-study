@@ -262,6 +262,8 @@ If this is your first time, start with a diagnostic:
 
 This generates a 150-question exam across all 8 domains. Your results establish a baseline that the system uses to weight future study sessions toward your weak areas.
 
+After your diagnostic, run `/review` to see your per-domain breakdown, identify your 3 weakest domains, and get a targeted study plan for weeks 2-4.
+
 ## Customization
 
 The system is designed to be forked and personalized. Personal files are gitignored so you can pull upstream updates without merge conflicts.

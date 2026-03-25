@@ -252,10 +252,12 @@ Authentication: Verifying the identity of a user, process, or device.
 
 Kerberos: Network authentication protocol using symmetric key cryptography and a trusted
 third party (KDC). Components: Key Distribution Center (KDC) = Authentication Server (AS) +
-Ticket-Granting Server (TGS). Process: (1) Client → AS: request TGT. (2) AS → Client: TGT
-(encrypted with client's key). (3) Client → TGS: TGT + request for service ticket. (4) TGS →
-Client: service ticket. (5) Client → Service: service ticket. Uses timestamps to prevent replay
-attacks. Default ticket lifetime is typically 10 hours. Single sign-on within a Kerberos realm.
+Ticket-Granting Server (TGS). Process: (1) Client → AS: request TGT. (2) AS → Client:
+response encrypted with client's secret key, containing a session key + the TGT (TGT itself
+is encrypted with TGS's secret key — opaque to client). (3) Client → TGS: TGT + request for
+service ticket. (4) TGS → Client: service ticket. (5) Client → Service: service ticket.
+Uses timestamps to prevent replay attacks. Default ticket lifetime is typically 10 hours.
+Single sign-on within a Kerberos realm.
 
 SAML (Security Assertion Markup Language): XML-based standard for exchanging authentication
 and authorization data between identity providers (IdP) and service providers (SP). Used for
@@ -331,6 +333,20 @@ and error handling issues.
 Breach Attack Simulation (BAS): Automated tools that continuously simulate real-world attack
 scenarios to validate security controls are functioning as expected.
 
+SOC 1 (Service Organization Control 1): Audit report focused on internal controls relevant
+to financial reporting. Governed by SSAE 18 (Statement on Standards for Attestation
+Engagements). Relevant when a service organization's controls could affect a client's
+financial statements.
+
+SOC 2 (Service Organization Control 2): Audit report evaluating controls relevant to security,
+availability, processing integrity, confidentiality, and/or privacy (Trust Services Criteria).
+Type I = controls at a point in time (design only). Type II = controls over a period of time
+(design + operating effectiveness). Type II is more rigorous and more commonly requested.
+
+SOC 3 (Service Organization Control 3): Public-facing summary of a SOC 2 report. Contains the
+auditor's opinion but not the detailed control descriptions or test results. Suitable for
+general distribution (e.g., posting on a website). Less detailed than SOC 2.
+
 ## Domain 7: Security Operations
 
 RPO (Recovery Point Objective): Maximum tolerable data loss measured in time.
@@ -398,6 +414,24 @@ perimeters and pedestrian areas from ramming.
 Faraday Cage: Enclosure of conductive material that blocks electromagnetic fields. Prevents
 electronic eavesdropping (TEMPEST attacks) and wireless signal leakage. Used in SCIFs
 (Sensitive Compartmented Information Facilities).
+
+DLP (Data Loss Prevention): Controls that detect and prevent unauthorized transmission of
+sensitive data outside the organization. Network DLP monitors data in transit (email, web,
+FTP). Endpoint DLP monitors data on devices (USB, print, clipboard). Storage DLP scans data
+at rest (file shares, databases, cloud storage). Policy-based: rules define what data cannot
+leave and through which channels.
+
+Change Management: Formal process for requesting, evaluating, approving, implementing, and
+reviewing changes to IT systems. Purpose: prevent unauthorized or poorly tested changes from
+causing outages or security incidents. Key elements: change request, impact assessment,
+approval authority (Change Advisory Board / CAB), implementation, post-implementation review.
+Emergency changes still require documentation — retroactive approval is acceptable.
+
+Configuration Management: Process of identifying, documenting, and controlling the configuration
+of IT assets throughout their lifecycle. Establishes and maintains baselines — known-good
+states that can be compared against to detect drift or unauthorized changes. Configuration
+Management Database (CMDB) is the authoritative record. Supports auditing, incident response,
+and change management.
 
 ## Domain 8: Software Development Security
 
